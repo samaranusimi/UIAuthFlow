@@ -24,7 +24,7 @@ class Splash extends StatelessWidget {
         ),
       ),
       duration: 2000,
-      nextScreen: LoginPage(),
+      nextScreen: AnimatedLoginPage(),
       splashTransition: SplashTransition.fadeTransition,
     );
   }
