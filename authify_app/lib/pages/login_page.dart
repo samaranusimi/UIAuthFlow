@@ -1,3 +1,4 @@
+import 'package:authify_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -35,8 +36,8 @@ class AnimatedLoginPageState extends State<AnimatedLoginPage>
 }
 
 class LoginPage extends StatelessWidget {
-  var _deviceHeight;
-  var _deviceWidth;
+  late double _deviceHeight;
+  late double _deviceWidth;
   Color _primaryColor = Color.fromRGBO(125, 191, 211, 1.0);
   Color _secondaryColor = Color.fromRGBO(169, 224, 241, 1.0);
 
@@ -71,7 +72,7 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: _deviceHeight * 0.10,
                 ),
-                _loginButton()
+                _loginButton(context)
               ],
             ),
           ),
@@ -82,7 +83,7 @@ class LoginPage extends StatelessWidget {
     double circleD = _deviceHeight * 0.25;
     return AnimatedBuilder(
         animation: _animation.controller,
-        builder: (BuildContext context, child) {
+        builder: (BuildContext _context, child) {
           return Transform(
             alignment: Alignment.center,
             transform: Matrix4.diagonal3Values(
@@ -138,7 +139,7 @@ class LoginPage extends StatelessWidget {
         ));
   }
 
-  Widget _loginButton() {
+  Widget _loginButton(BuildContext _context) {
     return MaterialButton(
       minWidth: _deviceWidth * 0.38,
       height: _deviceHeight * 0.055,
@@ -154,7 +155,12 @@ class LoginPage extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushReplacement(_context,
+            MaterialPageRoute(builder: (BuildContext _context) {
+          return HomePage();
+        }));
+      },
     );
   }
 }
