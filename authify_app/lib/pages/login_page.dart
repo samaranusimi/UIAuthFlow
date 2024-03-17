@@ -1,17 +1,19 @@
-import 'package:authify_app/pages/home_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+// ignore_for_file: must_be_immutable
 
-import '../utils/animations/animation.dart';
+import 'package:authify_app/pages/home_page.dart';
+import 'package:authify_app/utils/pageroute/fade_page_route.dart';
+import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
+import '../utils/animations/login_page_animation.dart';
 
 class AnimatedLoginPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return AnimatedLoginPageState();
+    return _AnimatedLoginPageState();
   }
 }
 
-class AnimatedLoginPageState extends State<AnimatedLoginPage>
+class _AnimatedLoginPageState extends State<AnimatedLoginPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   @override
@@ -19,7 +21,7 @@ class AnimatedLoginPageState extends State<AnimatedLoginPage>
     super.initState();
     _controller = AnimationController(
         vsync: this,
-        duration: Duration(seconds: 2),
+        duration: Duration(seconds: 1),
         reverseDuration: Duration(milliseconds: 400));
   }
 
@@ -31,11 +33,11 @@ class AnimatedLoginPageState extends State<AnimatedLoginPage>
 
   @override
   Widget build(BuildContext context) {
-    return LoginPage(_controller);
+    return _LoginPage(_controller);
   }
 }
 
-class LoginPage extends StatelessWidget {
+class _LoginPage extends StatelessWidget {
   late double _deviceHeight;
   late double _deviceWidth;
   Color _primaryColor = Color.fromRGBO(125, 191, 211, 1.0);
@@ -44,8 +46,7 @@ class LoginPage extends StatelessWidget {
   late AnimationController _controller;
   late EnterAnimation _animation;
 
-  LoginPage(_controller) {
-    _controller = _controller;
+  _LoginPage(this._controller) {
     _animation = EnterAnimation(_controller);
     _controller.forward();
   }
@@ -155,11 +156,12 @@ class LoginPage extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onPressed: () {
-        Navigator.pushReplacement(_context,
-            MaterialPageRoute(builder: (BuildContext _context) {
-          return HomePage();
-        }));
+      onPressed: () async {
+        await _controller.reverse();
+        Navigator.pushReplacement(
+          _context,
+          FadePageRoute(AnimatedHomePage()),
+        );
       },
     );
   }
