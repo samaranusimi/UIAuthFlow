@@ -1,8 +1,9 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:authify_app/pages/home_page.dart';
-import 'package:authify_app/utils/pageroute/fade_page_route.dart';
+
 import 'package:flutter/material.dart';
+import 'package:uiauthflow/pages/home_page.dart';
+import 'package:uiauthflow/utils/pageroute/fade_page_route.dart';
 // import 'package:flutter/widgets.dart';
 import '../utils/animations/login_page_animation.dart';
 

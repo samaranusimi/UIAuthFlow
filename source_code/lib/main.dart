@@ -1,4 +1,4 @@
-import 'package:authify_app/pages/splash.dart';
+import 'package:uiauthflow/pages/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,9 +1,10 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:authify_app/pages/login_page.dart';
-import 'package:authify_app/utils/animations/login_page_animation.dart';
-import 'package:authify_app/utils/pageroute/slide_page_animation.dart';
+
 import 'package:flutter/material.dart';
+import 'package:uiauthflow/pages/login_page.dart';
+import 'package:uiauthflow/utils/animations/login_page_animation.dart';
+import 'package:uiauthflow/utils/pageroute/slide_page_animation.dart';
 // import 'package:flutter/widgets.dart';
 
 class AnimatedHomePage extends StatefulWidget {

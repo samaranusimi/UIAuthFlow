@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:authify_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:uiauthflow/pages/login_page.dart';
 
 class Splash extends StatelessWidget {
   @override
